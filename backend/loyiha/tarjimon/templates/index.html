@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjimon</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/semantic-ui/semantic.min.css' %}">
+
+</head>
+<body>
+    <div class="ui header segment">
+        <div class="ui container">
+         <h1 class="ui header">Online lug'at</h1>
+        </div>
+        <div class="ui divider"></div>
+        <p>Tezlik, Sifat, Bepul tarjimon</p>
+    </div>
+    <div class="ui container">
+        <div class="ui placeholder segment">
+            <div class="ui icon header">
+                Iglizcha-O'zbekcha va O'zbekcha-Inglizcha lug'at
+            </div>
+            <div class="inline" style="width: 90%;">
+                <div class="ui massive search form">
+                    <form method="GET" action="/" class="ui icon input" style="width: 100%;">
+                        <input name="q" value="{{q}}" class="promt" type="text" placeholder="Biror so'zni kiriting"/>
+                        <i class="search link icon"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="ui piled segment">
+            <h4 class="ui header ">Natija</h4>
+            <table class="ui celled large olive table">
+                <thead>
+                    <tr>
+                        <th> <i class="united kingdom flag"></i> Inglizcha</th>
+                        <th> <i class="uzbekistan flag"></i> O'zbekcha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if natija %}
+                    {% for tarjima in natija %}
+                    <tr>
+                        <td>{{ tarjima.inglizcha }}</td>
+                        <td>{{ tarjima.uzbekcha }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</body>
+</html>
